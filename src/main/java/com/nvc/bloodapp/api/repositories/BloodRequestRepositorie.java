@@ -10,12 +10,11 @@ import org.springframework.transaction.annotation.Transactional;
 import com.nvc.bloodapp.api.models.BloodRequest;
 
 public interface BloodRequestRepositorie extends JpaRepository<BloodRequest, Long>{
-//	@Modifying
-//	@Transactional
-	@Query(value= "select * FROM bloodrequest where br_status =1", nativeQuery = true)
+
+	@Query(value= "select * from bloodrequest where br_status =1", nativeQuery = true)
 	public List<BloodRequest> getActiveBloodRequests();  
 	
-	@Query(value= "select * FROM bloodrequest where user_id =?1", nativeQuery = true)
+	@Query(value= "select * from bloodrequest where user_id =?1", nativeQuery = true)
 	public List<BloodRequest> getBloodRequestsByUserID(Long userId);
 
 	@Modifying
