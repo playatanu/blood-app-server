@@ -17,13 +17,13 @@ public interface UserRepositorie extends JpaRepository<User, Long>{
 	
 	@Modifying
 	@Transactional
-	@Query(value = "UPDATE User SET user_name=?2, user_phone =?3 WHERE user_id = ?1", nativeQuery = true)
+	@Query(value = "UPDATE user SET user_name=?2, user_phone =?3 WHERE user_id = ?1", nativeQuery = true)
 	public Integer updateNameAndPhone (Long id,String name,String phone);
 	
 	
 	@Modifying
 	@Transactional
-	@Query(value= "update User set user_status = IF(user_status=1, 0, 1) where user_id =?1", nativeQuery = true)
+	@Query(value= "update user set user_status = IF(user_status=1, 0, 1) where user_id =?1", nativeQuery = true)
 	public Integer updateStatus (Long id);
 	
 	@Modifying
